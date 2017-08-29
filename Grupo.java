@@ -19,7 +19,7 @@ public class Grupo
     private int buscarEstudiante(int claveEstudiante)
     {
         for(int i = 0; i < estudiantes.length; i++)   {
-            if (estudiantes[i].dimeClave() == claveEstudiante) {
+            if (estudiantes[i] != null && estudiantes[i].dimeClave() == claveEstudiante) {
                 return i;
             }
         }
@@ -61,11 +61,20 @@ public class Grupo
         return true;  // el estudiante fue inscrito
     }
     
-    // Terminar este método de tarea
-    public void darBaja(int claveEstudiante)
+    /**
+     * Realiza la baja de un estudiante del grupo.
+     * @param claveEstudiante Es la clave del estudiante que será dado de baja.
+     * @return Regresa verdadero en caso de que el estudiante haya sido dado de baja 
+     *  correctamente o falso en caso de que el estudiante no fue dado de baja.
+     */
+    public boolean darBaja(int claveEstudiante)
     {
-        // Buscar el estudiante con la clave dada
-        // y asignarle un null
+        int posEstudiante = this.buscarEstudiante(claveEstudiante);
+        if (posEstudiante != -1)    {  // si existe el estudiante
+            estudiantes[posEstudiante] = null;
+            return true;
+        }
+        return false;
     }
 }
 
