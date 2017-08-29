@@ -9,6 +9,9 @@ public class Estudiante
         clave = claveIni;
     }
     
+    /**
+     * Accede a la información del estudiante.
+     */
     public String dimeDetalles()
     {
         return "Clave: " + clave + ", Nombre: " + nombre;
